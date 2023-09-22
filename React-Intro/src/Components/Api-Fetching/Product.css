@@ -1,0 +1,19 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.productContainer{
+    width: 100%;
+    height: auto;
+    background: red;
+    padding: 5rem 0;
+
+}
+.productInner{
+    border: 1px solid grey;
+    width: 40rem;
+    padding: 5rem 0;
+    background-color: green;
+}

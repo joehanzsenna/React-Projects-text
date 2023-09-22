@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.sec1{
+    width: 100%;
+    height: 100vh;
+    background-color: green;
+}
+.sec2{
+    width: 100%;
+    height: 100vh;
+    background-color: yellow;
+}
+
