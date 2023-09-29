@@ -6,7 +6,7 @@
 
 .productContainer{
     width: 100%;
-    height: auto;
+    height: 50vh;
     background: red;
     padding: 5rem 0;
 
@@ -16,4 +16,16 @@
     width: 40rem;
     padding: 5rem 0;
     background-color: green;
+}
+
+
+/* random api css part  */
+
+.contents-api{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.apiImg{
+    width: 8rem;
 }

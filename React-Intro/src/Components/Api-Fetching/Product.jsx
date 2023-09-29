@@ -1,37 +1,43 @@
 import React, { useState, useEffect } from "react";
-import './Product.css'
+import "./Product.css";
 
 const Product = () => {
-  const [products, setProducts] = useState([]);
-  let api = `https://api.escuelajs.co/api/v1/products/1
-`;
-console.log(api.textContent);
+  const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  function fetchingApi (){
+     // Fetch data for a specific product from the FakeStore API
+    fetch("https://fakestoreapi.com/products") // Replace '3' with the desired product ID
+      .then((response) => response.json())
+      .then((data) => {
+        setProduct(data);
+        setLoading(false);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  }
 
   useEffect(() => {
-    // Fetch product data from the FakeStore API
-     //api.escuelajs.co/api/v1/products
-    //  https://fakestoreapi.com/products
-     https: fetch(api)
-       .then((response) => response.json())
-       .then((data) => setProducts(data))
-       .catch((error) => console.error("Error fetching data:", error));
+    fetchingApi()
   }, []);
 
-    // Fetching with Axios
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className="productContainer">
-      <h1>Product List</h1>
-      <ul className="productInner">
-        {products.map((product) => {
-          <li key={product.id}>
-            <h3>{product.title}</h3>
-            <p>Price: ${product.price}</p>
-            <p>Category: {product.category}</p>
-            <p>{product.description}</p>
-          </li>
-})}
-      </ul>
+      <h2>Product Details</h2>
+      <div>
+        {product.map((pro) => (
+          <div key={pro.id}>
+            <h3>{pro.title}</h3>
+            <p>Price: ${pro.price}</p>
+            <p>Category: {pro.category}</p>
+            <p>{pro.description}</p>
+            <img src={pro.image} alt={pro.title} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

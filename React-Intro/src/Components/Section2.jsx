@@ -12,15 +12,14 @@ const Section2 = () => {
       </div>
     );
   });
-  
+
   return (
     <div className="sec2"style={{
         display: `grid`,gridTemplateColumns: `repeat(3, 1fr)`,
         minHeight: `100vh`,justifyContent: `center`,
         alignItems: `center`,margin: `0 auto`,
         placeItems: `center`,color: `#000`,
-      }}
-    >
+      }}>
       {res}
     </div>
   );

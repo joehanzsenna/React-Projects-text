@@ -4,23 +4,44 @@ import img03 from "../../assets/HomeSec2Img03.png";
 
 export const products = [
   {
-    id: 1,
+    // id: 1,
     productName: "Product 1",
     price: 19.99,
     description: "This is the description for Product 1.",
     img: img01,
   },
   {
-    id: 2,
+    // id: 2,
     productName: "Product 2",
     price: 29.99,
     description: "This is the description for Product 2.",
     img: img02,
   },
   {
-    id: 3,
+    // id: 3,
     productName: "Product 3",
     price: 39.99,
+    description: "This is the description for Product 3.",
+    img: img03,
+  },
+  {
+    // id: 3,
+    productName: "Product 4",
+    price: 49.99,
+    description: "This is the description for Product 3.",
+    img: img03,
+  },
+  {
+    // id: 3,
+    productName: "Product 5",
+    price: 59.99,
+    description: "This is the description for Product 3.",
+    img: img03,
+  },
+  {
+    // id: 3,
+    productName: "Product 6",
+    price: 69.99,
     description: "This is the description for Product 3.",
     img: img03,
   },

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Style.css";
 
 const Section1 = () => {
-  const [friend, setFriend] = useState(false);
   const [count, setCount] = useState(0);
 
   const increase = () => {
@@ -23,6 +22,7 @@ const Section1 = () => {
       <button onClick={decrease}>decrease</button>
       <button onClick={reset}>reset</button>
 
+      
     </div>
   );
 };

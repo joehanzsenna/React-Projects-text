@@ -1,17 +1,13 @@
 import React, { useState } from "react";
-import "./FormRegistration.css"; // Import your CSS file
+import './FormValidation.css'
 
-const FormRegistration = () => {
-  // Initialize form state
+const FormValidation = () => {
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
   });
-
-  // Initialize validation state
-  // const [errors, setErrors] = useState({});
 
   // Handle form input changes
   const handleInputChange = (event) => {
@@ -22,7 +18,7 @@ const FormRegistration = () => {
     });
   };
 
-  // Handle form submission
+  // handleSubmit function
   const handleSubmit = (event) => {
     event.preventDefault();
     // Validate the form data here
@@ -31,25 +27,22 @@ const FormRegistration = () => {
 
     // If there are no errors, you can submit the form data
     if (Object.keys(validationErrors).length === 0) {
-      // Perform your registration logic here
       alert("Registration successful!");
     }
   };
 
-  // Define a function to validate the form data
   const validateForm = (data) => {
     let errors = {};
     if (!data.username) {
       errors.username = "Username is required";
-    }else if (data.username.length < 4){
+    } else if (data.username.length < 4) {
       errors.username = "Username must not be less than 4";
     }
-
-      if (!data.email) {
-        errors.email = "Email is required";
-      } else if (!isValidEmail(data.email)) {
-        errors.email = "Invalid email format";
-      }
+    if (!data.email) {
+      errors.email = "Email is required";
+    } else if (!isValidEmail(data.email)) {
+      errors.email = "Invalid email format";
+    }
     if (!data.password) {
       errors.password = "Password is required";
     } else if (data.password.length < 6) {
@@ -65,34 +58,35 @@ const FormRegistration = () => {
   };
 
   return (
-    <section className="mainContainer">
-      <div className="registration-form-container">
+    // main container
+    <div className="mainContainer">
+      {/* form container  */}
+      <div className="formContainer">
         <h2>Registration Form</h2>
+        {/* form  */}
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Username:</label>
+          <div>
+            <p>Username</p>
             <input
               type="text"
               name="username"
-              // maxLength={10}
-              // minLength={4}
               value={formData.username}
               onChange={handleInputChange}
             />
             {errors.username && <p className="error">{errors.username}</p>}
           </div>
-          <div className="form-group">
-            <label>Email:</label>
+          <div>
+            <p>Email:</p>
             <input
-              type="text"
+              type="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
             />
             {errors.email && <p className="error">{errors.email}</p>}
           </div>
-          <div className="form-group">
-            <label>Password:</label>
+          <div>
+            <p>Password</p>
             <input
               type="password"
               name="password"
@@ -101,11 +95,12 @@ const FormRegistration = () => {
             />
             {errors.password && <p className="error">{errors.password}</p>}
           </div>
+
           <button type="submit">Register</button>
         </form>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default FormRegistration;
+export default FormValidation;

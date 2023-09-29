@@ -4,16 +4,17 @@ import './Product.css'
 
 function ProductCard(props) {
   return (
-    <div>
-      <img src={props.img} alt="" />
-      <div>
-        <h2>{props.productName}</h2>
-        <p>Price: ${props.price}</p>
+    <div className="product-card">
+      <img src={props.img} className="product-card-img" alt="" />
+
+      <div className="product-card-text">
+        <h2 style={{ marginBottom: "5px" }}>{props.productName}</h2>
+        <p style={{ marginBottom: "5px" }}>Price: ${props.price}</p>
         <p>Descrtiption: {props.description}</p>
 
-        <div>
-          <button>Add to cart</button>
-          <button>Save Icon</button>
+        <div className="product-card-btns">
+          <button className="btn01">Add to cart</button>
+          <button className="btn02">Save Icon</button>
         </div>
       </div>
     </div>
@@ -22,18 +23,19 @@ function ProductCard(props) {
 
 const Product = () => {
   return (
-    <div className="product-list">
-      <h2> this is here </h2>
-      <div style={{ width: "100%", height: "50vh", backgroundColor: "none" }}>
-        {products.map((product) => (
-          <ProductCard
-            img={product.img}
-            key={product.id}
-            productName={product.productName}
-            price={product.price}
-            description={product.description}
-          />
-        ))}
+    <div className="product-container">
+      <div className="Product-content">
+          {products.map((product) => (
+
+            <ProductCard
+              img={product.img}
+              key={product.index}
+              productName={product.productName}
+              price={product.price}
+              description={product.description}
+            />
+
+          ))}
       </div>
     </div>
   );
